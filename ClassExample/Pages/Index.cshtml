@@ -2,11 +2,35 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-}
 
+    string [] people = {"cher ", "prince ", "madonna "};
+}
 <div class="text-center">
     <h1 class="display-4">Hello there!</h1>
     <p>The current time is @DateTime.Now</p>
     <p>dana.westfall77@stclairconnect.ca</p>
-   
+    <p>@DateTime.IsLeapYear(2020)</p>
+    <p>This time last week: @(DateTime.Now - TimeSpan.FromDays(7))</p>
+    <p>@("<span>A string in c#</span>")</p>
+    @{
+        var quote = "The future depends on what you do today. -Mahatma Gandi";
+     }
+     <p>@quote</p>
+     @{
+         quote = "Hate cannot drive out hate, only love can do that. -Martin Luther King Jr.";
+     }
+     <p>@quote</p>
+     @{
+       
+         var inCSharp = true;
+         <p>Now in HTML, was in C# @inCSharp</p>
+     }
+     <div>
+         @for (var i = 0; i < people.Length; i++)
+         {
+             var person = people[i];
+             <text>Name: @person</text>
+         }
+     </div>
 </div>
+
